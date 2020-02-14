@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - mellomelloMellow - created by pure JavaScript and canvas</title>
+    <title>小红红，你的情人节礼物到了</title>
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -12,6 +12,15 @@
         height: 100vh;
         overflow: hidden;
     }
+    .title{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -200px;
+        margin-top: -10px;
+        font-size: 20px;
+        width: 400px;
+    }
 
 </style>
 <body>
@@ -19,7 +28,20 @@
     <div id="contents">
         <canvas id="canvas" width="980" height="1743">This browser cannot use a canvas.</canvas>
     </div>
+    <div class="title" id="title">
+       
+    </div>
+    <script>
 
+        let T = document.getElementById("title");
+        let StrArr = "小红红 ,情人节快乐。 抱歉哈  来不及送礼物的我，希望这份礼物你能喜欢";
+        let num = 0
+       let timer = setInterval(function(){
+           num++
+           T.innerHTML += StrArr[num]
+       },500)
+       
+       </script>
     <script src="js/script.js"></script>
 
 
