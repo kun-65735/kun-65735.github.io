@@ -1,57 +1,231 @@
-<html lang="en">
-
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
-    <title>小红红，你的情人节礼物到了</title>
-    <link rel="stylesheet" href="css/style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>入我相思门，知我相思苦。情人节快乐</title>
+    <link rel="icon" href="./image/ax.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/t.css">
 </head>
-<style>
-    html,body{
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-    }
-    .title{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -200px;
-        margin-top: -10px;
-        font-size: 20px;
-        width: 400px;
-    }
 
-</style>
 <body>
+    <canvas id="c" width="375" height="667" style="opacity: 1;">
+    </canvas>
+    <div class="snowback">
+        <div class="ziti" id="ziti">
+            <span id="world"><span class="iconfont icon-bqxin">身无彩凤双飞翼，心有灵犀一点通<span class="iconfont icon-bqxin"></span></span></span>
+        </div>
+        <div class="main">
+            <div class="box">
+                <ul class="zhoxian1" style="transform: rotateY(-304deg) rotateX(-151deg);">
+                    <li class="small idv1"><img src="./image/img/111.jpg" alt=""></li>
+                    <li class="small idv2"><img src="./image/img/222.jpg" alt=""></li>
+                    <li class="small idv3"><img src="./image/img/333.jpg" alt=""></li>
+                    <li class="small idv4"><img src="./image/img/444.jpg" alt=""></li>
+                    <li class="small idv5"><img src="./image/img/555.jpg" alt=""></li>
+                    <li class="small idv6"><img src="./image/img/666.jpg" alt=""></li>
+                </ul>
+            </div>
+            <div class="box-biger">
+                <ul class="zhoxian2" style="transform: rotateY(-304deg) rotateX(-151deg);">
+                    <li class="biger idv7"><img src="./image/img/111.jpg" alt=""></li>
+                    <li class="biger idv2"><img src="./image/img/222.jpg" alt=""></li>
+                    <li class="biger idv3"><img src="./image/img/333.jpg" alt=""></li>
+                    <li class="biger idv4"><img src="./image/img/444.jpg" alt=""></li>
+                    <li class="biger idv5"><img src="./image/img/555.jpg" alt=""></li>
+                    <li class="biger idv12"><img src="./image/img/666.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    <canvas width="2048" height="1010"></canvas></div>
 
-    <div id="contents">
-        <canvas id="canvas" width="980" height="1743">This browser cannot use a canvas.</canvas>
+    <div class="btn btnonlond" onclick="biggen()">
+        <img class="btnimg" src="./image/mypic.gif" alt="">
+    
+    <div class="hiddenbox">
+        <div class="audiobox">
+            <audio class="myaudio" src="./music/mp3/pygh.mp3" autoplay="" controls="" loop=""></audio>
+        </div>
+        <input type="text" placeholder="请输入音乐名称">
+        <div class="btn inpbtn" onclick="inpbtnc()">放这个</div>
     </div>
-    <div class="title" id="title">
-       
-    </div>
-    <script>
-
-        let T = document.getElementById("title");
-        let StrArr = "小红红 ,情人节快乐。 抱歉哈  来不及送礼物的我，希望这份礼物你能喜欢";
-        console.log(StrArr.length)
-        let num = 0
-       let timer = setInterval(function(){
-           if (num == 34) {
-               clearInterval(timer)
-           }
-           num++
-           T.innerHTML += StrArr[num]
-
-           
-       },500)
-       
-       </script>
-    <script src="js/script.js"></script>
+</div>
 
 
 
-</body>
 
-</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/TweenMax.min.js"></script>
+<script src="./js/script.js"></script>
+<script src="./js/snow.js"></script>
+<script>
+    var zhoxian = document.querySelector(".zhoxian1");
+    var zhoxian2 = document.querySelector(".zhoxian2");
+    var yesno = 1;
+    setInterval(function xuanzhuan() {
+        if (yesno > 2) {
+            var ss = Math.random();
+            if (ss < 0.5) {
+                leftbut();
+            } else {
+                rigthtop();
+            }
+        } else {
+            yesno++;
+        }
+    }, 500);
+
+
+    var ysize1 = 0,
+        xsize2 = 0;
+    rigthtop()
+
+    function rigthtop() {
+        var suiji = Math.random();
+        ysize1 += 1 * (suiji * 20).toFixed(0) + 20;
+        xsize2 += 1 * (suiji * 10).toFixed(0) + 10;
+        var world = `rotateY(${ysize1}deg) rotateX(${xsize2}deg)`;
+        zhoxian.style.transform = world;
+        zhoxian2.style.transform = world;
+        yesno = 0;
+    }
+
+    function leftbut() {
+        var suiji1 = Math.random();
+        ysize1 -= 1 * (suiji1 * 20).toFixed(0) + 20;
+        xsize2 -= 1 * (suiji1 * 10).toFixed(0) + 10;
+        var world = `rotateY(${ysize1}deg) rotateX(${xsize2}deg)`;
+        zhoxian.style.transform = world;
+        zhoxian2.style.transform = world;
+        yesno = 0;
+    }
+
+    function onlyleft() {
+        var suiji1 = Math.random();
+        ysize1 -= 1 * (suiji1 * 20).toFixed(0) + 20;
+        var world = `rotateY(${ysize1}deg) rotateX(${xsize2}deg)`;
+        zhoxian.style.transform = world;
+        zhoxian2.style.transform = world;
+        yesno = 0;
+    }
+
+    function onlyright() {
+        var suiji = Math.random();
+        ysize1 += 1 * (suiji * 20).toFixed(0) + 20;
+        var world = `rotateY(${ysize1}deg) rotateX(${xsize2}deg)`;
+        zhoxian.style.transform = world;
+        zhoxian2.style.transform = world;
+        yesno = 0;
+    }
+
+    function onlytop() {
+        var suiji1 = Math.random();
+        xsize2 -= 1 * (suiji1 * 10).toFixed(0) + 10;
+        var world = `rotateY(${ysize1}deg) rotateX(${xsize2}deg)`;
+        zhoxian.style.transform = world;
+        zhoxian2.style.transform = world;
+        yesno = 0;
+    }
+
+    function onlybtn() {
+        var suiji = Math.random();
+        xsize2 += 1 * (suiji * 10).toFixed(0) + 10;
+        var world = `rotateY(${ysize1}deg) rotateX(${xsize2}deg)`;
+        zhoxian.style.transform = world;
+        zhoxian2.style.transform = world;
+        yesno = 0;
+    }
+    document.querySelector(".box-biger").onmousedown = function (evt) {
+        var oevent = evt || event;
+        var disx = oevent.clientX;
+        var disy = oevent.clientY;
+        document.onmousemove = function (evt) {
+            var oevent = evt || event;
+            evt.preventDefault();
+            tuozhuaiX = oevent.clientX - disx + 'px';
+            tuozhuaiY = oevent.clientY - disy + 'px';
+        }
+        document.onmouseup = function () {
+            if (parseInt(tuozhuaiX) * parseInt(tuozhuaiX) > parseInt(tuozhuaiY) * parseInt(tuozhuaiY)) {
+                if (tuozhuaiX[0] == '-') {
+                    onlyleft();
+                } else {
+                    onlyright();
+                }
+            } else {
+                if (tuozhuaiY[0] == '-') {
+                    onlybtn();
+                } else {
+                    onlytop();
+                }
+            }
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+
+    }
+    var moustime = 0;
+    document.getElementById("ziti").addEventListener("mouseenter", moveon);
+
+    function moveon() {
+        moustime++;
+        setTimeout(function () {
+            if (moustime == 1) {
+                document.getElementById("world").innerHTML = "曾经沧海难为水，除却巫山不是云";
+                moveon();
+            } else if (moustime == 2) {
+                document.getElementById("world").innerHTML =
+                    `<span class="iconfont icon-bqxin">人生自是有情痴，此恨不关风与月。<span class="iconfont icon-bqxin">`;
+                moveon();
+            } else if (moustime == 5) {
+                document.getElementById("world").innerHTML =
+                    `<span class="iconfont icon-bqxin">身无彩凤双飞翼，心有灵犀一点通<span class="iconfont icon-bqxin">`;
+            } else {
+                moveon();
+            }
+        }, 2000)
+    }
+    document.getElementById("ziti").addEventListener("mouseleave", function () {
+        moustime = 0;
+        document.getElementById("world").innerHTML =
+            `<span class="iconfont icon-bqxin">人生若只如初见，何事秋风悲画扇<span class="iconfont icon-bqxin">`;
+    });
+</script>
+<script>
+    var myaudio = document.querySelector(".myaudio");
+    var btnimg = document.querySelector(".btnimg");
+    var inpbtn = document.querySelector(".inpbtn");
+    var input = document.querySelector("input");
+    var isgo = 0;
+
+    function biggen() {
+        if (isgo == 0) {
+            myaudio.play();
+            btnimg.src = "./image/666.gif";
+            isgo = 1;
+        } else {
+            myaudio.pause();
+            btnimg.src = "./image/mypic.gif";
+            isgo = 0;
+        }
+    }
+    function inpbtnc() {
+        var name = input.value;
+        if (name == "") {
+            alert("请输入名称");
+            return;
+        }
+        var musicname = `./music/mp3/${name}.mp3`;
+        try {
+            myaudio.src = musicname;
+        } catch (err) {
+            console.log(111);
+            alert("请输入的名称不存在!");
+        }
+    }
+</script>
+
+<script>
+</script>
+
+</body></html>
